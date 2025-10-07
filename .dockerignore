@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.swp
+.env*
+.venv/
+.git
+.gitignore
+dist/
+build/
+terraform/.terraform/
+terraform/.terraform.lock.hcl

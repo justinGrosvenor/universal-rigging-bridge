@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rig-transformer"
+version = "0.1.0"
+description = "Rig transformer microservice with Blender integration"
+readme = "README.md"
+authors = [
+    { name = "Justin Grosvenor" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.34",
+    "fastapi>=0.110",
+    "httpx>=0.27",
+    "loguru>=0.7",
+    "pydantic>=2.6",
+    "pydantic-settings>=2.2",
+    "python-jose[cryptography]>=3.3",
+    "python-multipart>=0.0.9",
+    "redis>=5.0",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rigging_bridge*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+asyncio_mode = "auto"
+testpaths = ["tests"]
